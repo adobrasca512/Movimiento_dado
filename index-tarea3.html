@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Dado</title>
+      <meta charset="utf-8">
+      <link rel="icon" href="_images/dado.ico">
+      <meta name="author" content="Adilem Dobras" />
+      <link rel="stylesheet" type="text/css" href="style.css">
+      <meta name="description" content="Usando JS y  manejo de eventos, realice una página web que le permita simular el lanzamiento de los dados.  Se debe hacer doble click para lanzar el dado y un click para pararlo."/>
+   </head>
+   <body>
+      <main>
+         <div class="background-pane">
+            <div class="img-container">
+               <img alt="Dados" ondblclick="movimientoDado()"onclick="lanzarDados()"id="dado" src="_images/dado1.png">
+            </div>
+            <div class="txt-container">
+               <h1>Has dbclick para girar el dado <br> Click para detenerlo</h1>
+               <h2>Patrocinado por:</h2>
+               <img alt="Adilem-Dobras"src="_images/adilem.jpeg">
+               <p class="nombre">Adilem Dobras</p>
+               <p id="results"></p>
+            </div>
+         </div>
+      </main>
+   </body>
+   <script type="text/javascript">
+      //Esta variable guardara el intervalo, esto devuelve un numero
+      let myTime;
+      //Esta variable se guarda la imagen del dado, su id.
+      	let imgdado=document.getElementById("dado");
+      //array de imagenes de dados.
+        let arrayDados=["_images/dado1.png","_images/dado2.png","_images/dado3.png","_images/dado4.png","_images/dado5.png","_images/dado6.png"];
+      
+      function lanzarDados(){
+      //Cuando haga click paro el intervalo
+      clearInterval(myTime);
+      //aqui borro la animacion para que despues pueda volverse a repetir al hacer click
+      imgdado.style.removeProperty('animation')
+      
+        	let numero=getRandomInt(1,6);
+        	//resultado del dado
+        	document.getElementById("results").innerHTML = "Te a tocado el numero: "+(numero+1);
+        	//muestro el dado resultante
+        	imgdado.src=arrayDados[numero];
+        	
+      }
+      
+      
+      
+      function movimientoDado() {
+      //Aqui cambio el valor del p que da el resultado
+        	document.getElementById("results").innerHTML = "Spinning el dado";
+        	//añado una animacion a la imagen del dado
+      imgdado.style.animation = "rotation 5s ease-out";
+      //Aqui pongo el intervalo para cambiar imagenes cada 1s
+       myTime= setInterval(function(){
+         let numero=getRandomInt(1,6);
+         //muestro la imagen aleatoria (animacion)
+           imgdado.src = arrayDados[numero];           // set the image
+             // update the counter
+         },1000);
+      
+      }
+      
+      
+      
+      //Funcion para sacar valores aleatorios->enteros.
+      function getRandomInt(min, max) {
+       return Math.floor(Math.random() * (max - min)) + min;
+      }
+   </script>
+</html>

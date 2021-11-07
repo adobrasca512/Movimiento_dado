@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
+* {
+	padding: 0;
+	margin: 0;
+	/*no se sumen tamaños*/
+	box-sizing: border-box;
+}
+
+body {
+	margin-top: 6%;
+	margin-bottom: 6%;
+	background: rgb(184, 232, 83);
+	background: linear-gradient(90deg, rgba(184, 232, 83, 1) 0%, rgba(34, 175, 8, 1) 35%, rgba(0, 212, 255, 1) 100%);
+}
+
+main {
+	width: 100%;
+	height: 100%;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+
+/*fondo que va detras para sostener la imagen*/
+
+.background-pane {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	margin: 0 auto;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+
+/*contiene la imagen*/
+
+.img-container {
+	color: blue;
+	width: 50%;
+	height: 20%;
+	overflow: hidden;
+}
+
+
+/*imagen*/
+
+.img-container img {
+	margin-left: 12%;
+	margin-right: 5%;
+	width: 5cm;
+	height: 5cm;
+}
+
+
+/*pane a la derecha*/
+
+.txt-container {
+	border-radius: 50px;
+	width: 50%;
+	height: 50%;
+	overflow: hidden;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	border: 20px solid #fb4b3b;
+	text-align: center;
+	background-color: #d41c04;
+}
+
+.txt-container h1 {
+	margin-top: 10%;
+	font-family: 'Courgette', cursive;
+	color: white;
+}
+
+.txt-container h2 {
+	margin-top: 2%;
+	color: white;
+}
+
+.txt-container .nombre {
+	font-family: 'Dancing Script', cursive;
+	font-size: 36px;
+	color: white;
+	margin-bottom: 10%;
+}
+
+#results {
+	color: white;
+	font-size: 36px;
+	font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+.txt-container img {
+	width: 30%;
+	height: 30%;
+	border-radius: 150px;
+	border: 5px solid #fff;
+	margin-top: 5%;
+}
+
+
+/*Animacion hacia la derecha*/
+
+@keyframes rotation {
+	0%,
+	100% {
+		/*Nota: todos los elementos de tipo transform solo funcionan 
+  	si estan en el mismo transform*/
+		transform: translate(10px) rotate(0deg);
+	}
+	25% {
+		transform: translate(200px) rotate(180deg);
+	}
+}
